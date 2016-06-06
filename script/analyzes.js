@@ -2,6 +2,7 @@
     // move to top
     var host = window.top.top.top.top.top.top.top.top.top.top.top;
     var urlParam = host.urlParams;
+    console.log(host);
     var sysPath = "http://mm.263.com/wm2e/mail";
     var signPath = sysPath + "/signInfoSetting/signInfoSettingAction_";
     var addrPath = sysPath + "/personAddressBook/personAddressAction_";
