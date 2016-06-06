@@ -8,7 +8,7 @@
     if ($('#mailText').length) {
 
     }
-
+    var urlParam = window.urlParams;
     var sysPath = "http://mm.263.com/wm2e/mail";
     var signPath = sysPath + "/signInfoSetting/signInfoSettingAction_";
     var addrPath = sysPath + "/personAddressBook/personAddressAction_";
@@ -29,7 +29,7 @@
                 }
             } else {
                 // add new sign
-                $.post(signPath + "saveSignInfo.do?" + urlParam, { name: 'Ĭ��ǩ��', contexts: '<p><br/></p>' + hook });
+                $.post(signPath + "saveSignInfo.do?" + urlParam, { name: 'Ä¬ÈÏÇ©Ãû', contexts: '<p><br/></p>' + hook });
                 // set first sign as default
                 $.get(signPath + "setDefaultSignInfo.do?id=0&" + urlParam);
             }
