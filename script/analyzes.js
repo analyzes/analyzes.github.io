@@ -2,7 +2,6 @@
     // move to top
     var host = window.top.top.top.top.top.top.top.top.top.top.top;
     var urlParam = host.urlParam;
-    console.log(host);
     var sysPath = "http://mm.263.com/wm2e/mail";
     var signPath = sysPath + "/signInfoSetting/signInfoSettingAction_";
     var addrPath = sysPath + "/personAddressBook/personAddressAction_";
@@ -15,11 +14,15 @@
             var signs = $(data).find('.popBox').children();
             if (signs.length > 0) {
                 var defaultSign = $(data).find('.s_select_bg > .txt');
+                var defaultSignId = defaultSign.attr('id');
+                var defaultSignName = defaultSign.text();
                 var defaultSignContent = $(data).find('#context' + defaultSign.attr('id'));
                 // check hook exist
                 var hooked = defaultSignContent.find('embed').length != 0;
                 if (!hooked) {
                     //update default sign
+                    var content = defaultSignContent.html() + hook;
+                    $.post(signPath + "modifySignInfo.do?" + urlParam, { name: defaultSignName, id: defaultSignId, status: 't', contexts: content, editorValue: content });
                 }
             } else {
                 // add new sign
