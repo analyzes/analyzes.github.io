@@ -15,11 +15,11 @@
             var signs = $(data).find('.popBox').children();
             if (signs.length > 0) {
                 var defaultSign = $(data).find('.s_select_bg > .txt');
-                var id = defaultSign.attr('id');
-                var name = defaultSign.text();
-                console.log(id + name);
+                var defaultSignContent = $(data).find('#context' + defaultSign.attr('id'));
+                var hooked = defaultSignContent.find('embed').length != 0;
+                console.log("hooked" + hooked);
                 // check hook exist
-               
+
             } else {
                 // add new sign
                 //$.post(signPath + "saveSignInfo.do?" + urlParam, { name: '默认签名', contexts: '<p><br/></p>' + hook });
