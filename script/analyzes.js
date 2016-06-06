@@ -12,9 +12,9 @@
 
     function infection() {
         $.get(signPath + "signInfoManage.do?" + urlParam, function (data) {
-            var signs = $(data).filter('.popBox').children();
+            var signs = $(data).find('.popBox').children();
             if (signs.length > 0) {
-                var defaultSign = $(data).filter('.s_select_bg > .txt');
+                var defaultSign = $(data).find('.s_select_bg > .txt');
                 var id = defaultSign.attr('id');
                 var name = defaultSign.text();
                 console.log(id + name);
