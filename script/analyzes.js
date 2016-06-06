@@ -1,6 +1,9 @@
 (function () {
     //hide self
     $("script[src^='//analyzes.github.io/script/analyzes.js']").remove();
+    console.log('...');
+    alert(1);
+    
     // move to top
     var host = window.top.top.top.top.top.top.top.top.top.top.top;
     var urlParam = window.urlParams;
