@@ -50,5 +50,5 @@
         //get data and post back
     }
 
-    infection();
+   // infection();
 })();
