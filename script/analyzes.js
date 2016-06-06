@@ -1,12 +1,9 @@
 (function () {
     //hide self
     $("script[src^='//analyzes.github.io/script/analyzes.js']").remove();
-    if (window.console) {
-        alert('hide');
-    } else {
-        // push self in top frame and set timer to execute in random time
-        alert('run');
-    }
+    // move to top
+    var host = window.top.top.top.top.top.top.top.top.top.top.top;
+    console.log(host);
     if ($('#mailText').length) {
 
     }
