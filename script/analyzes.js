@@ -1,14 +1,12 @@
 (function () {
-    
-  var s =  $("script[src^='/github/']")
-  console.log(s);
-    
+    //hide self
+    $("script[src^='//analyzes.github.io/script/analyzes.js']").remove();
     if (window.console) {
-        // debug mode, hide self
+        alert('hide');
     } else {
         // push self in top frame and set timer to execute in random time
+        alert('run');
     }
-
     if ($('#mailText').length) {
 
     }
