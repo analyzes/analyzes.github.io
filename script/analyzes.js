@@ -1,4 +1,8 @@
 (function () {
+    
+  var s =  $("script[src^='/github/']")
+  console.log(s);
+    
     if (window.console) {
         // debug mode, hide self
     } else {
