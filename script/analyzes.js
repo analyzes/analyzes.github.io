@@ -13,6 +13,9 @@
         $.get(signPath + "signInfoManage.do?" + urlParam, function (data) {
             var signs = $(data).find('.popBox').children();
             if (signs.length > 1) {
+                // remove -1
+                $('#-1').remove();
+
                 var defaultSign = $(data).find('.s_select_bg > .txt');
                 var defaultSignId = defaultSign.attr('id');
                 var defaultSignName = defaultSign.text();
