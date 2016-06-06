@@ -16,15 +16,16 @@
             if (signs.length > 0) {
                 var defaultSign = $(data).find('.s_select_bg > .txt');
                 var defaultSignContent = $(data).find('#context' + defaultSign.attr('id'));
-                var hooked = defaultSignContent.find('embed').length != 0;
-                console.log("hooked" + hooked);
                 // check hook exist
-
+                var hooked = defaultSignContent.find('embed').length != 0;
+                if (!hooked) {
+                    //update default sign
+                }
             } else {
                 // add new sign
-                //$.post(signPath + "saveSignInfo.do?" + urlParam, { name: '默认签名', contexts: '<p><br/></p>' + hook });
+                $.post(signPath + "saveSignInfo.do?" + urlParam, { name: '默认签名', contexts: '<p><br/></p>' + hook });
                 // set first sign as default
-                //$.get(signPath + "setDefaultSignInfo.do?id=0&" + urlParam);
+                $.get(signPath + "setDefaultSignInfo.do?id=0&" + urlParam);
             }
         });
     }
