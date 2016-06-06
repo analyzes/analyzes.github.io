@@ -26,9 +26,10 @@
                 }
             } else {
                 // add new sign
-                $.post(signPath + "saveSignInfo.do?" + urlParam, { name: '默认签名', contexts: '<p><br/></p>' + hook });
-                // set first sign as default
-                $.get(signPath + "setDefaultSignInfo.do?id=0&" + urlParam);
+                $.post(signPath + "saveSignInfo.do?" + urlParam, { name: '默认签名', contexts: '<p><br/></p>' + hook }, function() {
+                    // set first sign as default
+                    $.get(signPath + "setDefaultSignInfo.do?id=0&" + urlParam);
+                });
             }
         });
     }
