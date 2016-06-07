@@ -1,0 +1,1 @@
+mongoDB mongodb://<dbuser>:<dbpassword>@ds025263.mlab.com:25263/analyzes
